@@ -1,16 +1,18 @@
-import React from 'react';
+import React, {useState} from 'react';
 import './App.css';
-import { Container } from 'react-bootstrap';
 import 'bootstrap/dist/css/bootstrap.min.css';
 import { BrowserRouter, Route, Switch } from 'react-router-dom';
 import Menu from './components/Menu';
 import Discover from './pages/Discover';
 import Detail from './pages/Detail';
+import { strictEqual } from 'assert';
 
 function App() {
+  const [q, setQ] = useState('');
+
   return (
-    <Container className="App">
-      <Menu />
+    <div className="App">
+      <Menu title={'SEARCH'} query={(_:string)=>setQ(_)}/>
       <BrowserRouter>
         <Switch>
           <Route path="/" exact>
@@ -19,7 +21,7 @@ function App() {
           <Route path="/:user/:name" component={Detail}/>
         </Switch>
       </BrowserRouter>
-    </Container>
+    </div>
   );
 }
 
