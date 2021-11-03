@@ -13,7 +13,7 @@ export default ${name};
 
 //component.test.tsx
 exports.test = name => `import React from 'react';
-import { render } from '@testing-library-react';
+import { render } from '@testing-library/react';
 import ${name} from './${name}';
 
 describe('${name} Component', () => {
