@@ -4,7 +4,7 @@ import { Data, Item } from '../../services/types';
 import { calcThousands } from '../../services/github.service';
 import useFetch from 'react-fetch-hook';
 import { useParams } from 'react-router-dom';
-import { Container, Col, Row, Badge } from 'react-bootstrap';
+import { Container, Row, Badge } from 'react-bootstrap';
 import Block from '../../components/Block';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { faStar, faEye } from '@fortawesome/free-regular-svg-icons';
@@ -30,6 +30,7 @@ function Detail() {
           column: {masthead: '', body: ''},
           image: {name: 'not-found', URL: 'https://images.unsplash.com/photo-1609743522653-52354461eb27?ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&ixlib=rb-1.2.1&auto=format&fit=crop&w=987&q=80'}
       }
+
     return( 
         <Container className="my-4 px-4" fluid>
             { item?.id 

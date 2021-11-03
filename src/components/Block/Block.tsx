@@ -1,6 +1,6 @@
 import React from 'react';
 import './Block.css';
-import { Container, Col, Row, Badge } from 'react-bootstrap';
+import { Container, Col, Row } from 'react-bootstrap';
 
 export interface BlockProps {
     content : {

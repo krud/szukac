@@ -1,7 +1,6 @@
-import { count } from 'console';
-import { Language } from './types';
+import { Query } from './types';
 
-export const Languages: Array<Language> = [
+export const Languages: Array<Query> = [
     {name: 'JavaScript', queryId: 'javascript'},
     {name: 'Java', queryId: 'java'},
     {name: 'CSS', queryId: 'CSS'},
@@ -12,6 +11,12 @@ export const Languages: Array<Language> = [
     {name: 'Ruby', queryId: 'ruby'},
     {name: 'C++', queryId: 'C%2B%2B'},
     {name: 'TypeScript', queryId: 'typescript',},
+]
+
+export const Sort: Array<Query> = [
+    {name: 'Best Match', queryId: ''},
+    {name: 'Most Stars', queryId: '&sort=stars'},
+    {name: 'Fewest Stars', queryId: '&sort=stars-asc'},
 ]
 
 export const calcThousands = (count: number) => {

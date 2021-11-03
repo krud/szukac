@@ -1,7 +1,7 @@
 import React from 'react';
 import { Item } from '../../services/types';
 import { calcThousands } from '../../services/github.service';
-import { Container, Col, Row, ListGroup, Badge } from 'react-bootstrap';
+import { Col, Row, Badge } from 'react-bootstrap';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import './Overview.css';
 import { faStar } from '@fortawesome/free-regular-svg-icons';
