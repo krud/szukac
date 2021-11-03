@@ -16,4 +16,4 @@ function writeFileErrorHandler(err){
 fs.writeFile(`${dir}/${name}.tsx`, component(name), writeFileErrorHandler);
 fs.writeFile(`${dir}/${name}.css`, '', writeFileErrorHandler);
 fs.writeFile(`${dir}/${name}.test.tsx`, test(name), writeFileErrorHandler);
-fs.writeFile(`${dir}/${name}.index. tsx`, barrel(name), writeFileErrorHandler);
+fs.writeFile(`${dir}/index.tsx`, barrel(name), writeFileErrorHandler);
