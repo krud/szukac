@@ -5,7 +5,6 @@ import { BrowserRouter, Route, Switch } from 'react-router-dom';
 import Menu from './components/Menu';
 import Discover from './pages/Discover';
 import Detail from './pages/Detail';
-import { strictEqual } from 'assert';
 
 function App() {
   const [q, setQ] = useState('');
@@ -16,7 +15,7 @@ function App() {
       <BrowserRouter>
         <Switch>
           <Route path="/" exact>
-            <Discover/>
+            <Discover query={q}/>
           </Route>
           <Route path="/:user/:name" component={Detail}/>
         </Switch>
