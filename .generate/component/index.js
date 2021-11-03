@@ -4,7 +4,7 @@ const { component, test, barrel } = require('./component_template');
 const [name] = process.argv.slice(2);
 if(!name) throw new Error('Please include a component name.');
 
-const dir = `./src/pages/${name}`;
+const dir = `./src/components/${name}`;
 
 if (fs.existsSync(dir)) throw new Error('A component with that name already exists.');
 fs.mkdirSync(dir);

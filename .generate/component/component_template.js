@@ -1,11 +1,11 @@
 //component.tsx
 exports.component = name => `import React from 'react';
-import './'${name}'.css';
+import './${name}.css';
 export interface ${name}Props {}
 
 function ${name}() {
     return(
-        <div>${name} works!<div>
+        <div>${name} works!</div>
     )
 };
 export default ${name};
