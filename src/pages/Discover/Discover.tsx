@@ -39,7 +39,7 @@ function Discover({query}: DiscoverProps) {
                         </Container> 
                     : repos.length > 0 
                         ? <ListGroup>
-                            {repos.map(i => (<ListGroup.Item key={i.id}><Overview/></ListGroup.Item>))}
+                            {repos.map(i => (<ListGroup.Item key={i.id}><Overview repo={i}/></ListGroup.Item>))}
                         </ListGroup>
                         : 'Use the Searchbar to Discover Repos'
                     }
