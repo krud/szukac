@@ -4,7 +4,7 @@ import Discover from './Discover';
 
 describe('Discover Component', () => {
     test('it should match the snapshot', () => {
-        const { asFragment } = render(<Discover />);
+        const { asFragment } = render(<Discover query={'test'}/>);
         expect(asFragment()).toMatchSnapshot();
     });
 });

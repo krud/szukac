@@ -4,17 +4,6 @@ export interface Data extends Response {
     items: Array<Item>;
 }
 
-export interface Search {
-    sort?: string;
-    language?: string;
-}
-
-export interface Data2 {
-    total_count: number;
-    incomplete_results: boolean;
-    items: Array<Item>;
-}
-
 export interface Query {
     name: string;
     queryId: string;

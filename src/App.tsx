@@ -2,7 +2,7 @@ import React, {useState} from 'react';
 import './App.css';
 import 'bootstrap/dist/css/bootstrap.min.css';
 import { BrowserRouter, Route, Switch } from 'react-router-dom';
-import MainMenu from './components/MainMenu';
+import Menu from './components/Menu';
 import Discover from './pages/Discover';
 import Detail from './pages/Detail';
 
@@ -11,7 +11,7 @@ function App() {
 
   return (
     <div className="App">
-      <MainMenu title={'SEARCH'} query={(_:string)=>setQ(_)}/>
+      <Menu title={'SEARCH'} query={(_:string)=>setQ(_)}/>
       <BrowserRouter>
         <Switch>
           <Route path="/" exact>

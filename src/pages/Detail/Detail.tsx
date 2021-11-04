@@ -8,16 +8,14 @@ import { Container, Row, Badge } from 'react-bootstrap';
 import Block from '../../components/Block';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { faStar, faEye } from '@fortawesome/free-regular-svg-icons';
-import { faCodeBranch } from '@fortawesome/free-solid-svg-icons';
+import { faCodeBranch, faSpinner } from '@fortawesome/free-solid-svg-icons';
 import Overview from '../../components/Overview';
-
-export interface DetailProps {}
 
 function Detail() {
     const { user, name } = useParams<{ user: string, name: string }>();
     const [item, setItem] = useState<Item>();
 
-    const { isLoading, error } = useFetch(`https://api.github.com/search/repositories?q=repo:${user}/${name}`, {
+    const { isLoading } = useFetch(`https://api.github.com/search/repositories?q=repo:${user}/${name}`, {
         formatter(response: Data): Promise<void> {
           return response.json().then((response) => {
             setItem(response.items[0]);
@@ -33,20 +31,23 @@ function Detail() {
 
     return( 
         <Container className="my-4 px-4" fluid>
-            { item?.id 
-                ? <>
-                    <Overview repo={item}/>
-                    <Row>
-                        <span className="w-fit"><FontAwesomeIcon className="me-1" icon={faEye}/>{calcThousands(item.watchers_count)}</span>
-                        <span className="w-fit"><FontAwesomeIcon className="me-1" icon={faStar}/>{calcThousands(item.stargazers_count)}</span>
-                        <span className="w-fit"><FontAwesomeIcon className="me-1" icon={faCodeBranch}/>{calcThousands(item.forks_count)}</span>
-                        <Badge bg="light" className="w-fit d-flex text-capitalize ms-2 text-black-50 rounded">{item.private ? 'Private' : 'Public'}</Badge>
-                    </Row>
-                    <Row>
-                        {item.topics.map(topic => <Badge bg="light" key={`tag-${topic}`} className="w-fit d-flex text-capitalize ms-2 text-black-50 rounded">{topic}</Badge>)}
-                    </Row>
-                </>
-            : <Block content={notFound}></Block>
+            { isLoading 
+                ?   <Container className="text-center my-5 py-5">
+                        <FontAwesomeIcon className="fa-5x fa-spin" icon={faSpinner}/>
+                    </Container> 
+                    : item?.id ? 
+                    <><Overview repo={item}/>
+                        <Row>
+                            <span className="w-fit"><FontAwesomeIcon className="me-1" icon={faEye}/>{calcThousands(item.watchers_count)}</span>
+                            <span className="w-fit"><FontAwesomeIcon className="me-1" icon={faStar}/>{calcThousands(item.stargazers_count)}</span>
+                            <span className="w-fit"><FontAwesomeIcon className="me-1" icon={faCodeBranch}/>{calcThousands(item.forks_count)}</span>
+                            <Badge bg="light" className="w-fit d-flex text-capitalize ms-2 text-black-50 rounded">{item.private ? 'Private' : 'Public'}</Badge>
+                        </Row>
+                        <Row>
+                            {item.topics.map(topic => <Badge bg="light" key={`tag-${topic}`} className="w-fit d-flex text-capitalize ms-2 text-black-50 rounded">{topic}</Badge>)}
+                        </Row>
+                    </>
+                    : <Block content={notFound}></Block>
             }
       </Container>
     );
